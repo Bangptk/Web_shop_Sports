@@ -2,88 +2,72 @@
 Website thương mại điện tử bán đồ thể thao - Nhóm 3 - Học phần Phát triển ứng dụng J2EE
 
 ## Cấu trúc Thư mục Toàn diện (Enterprise Architecture):
-src/
-├── assets/                  # Tài nguyên tĩnh
-│   ├── images/              # Logo, banners, placeholder
-│   ├── icons/               # SVG icons, favicon
-│   └── videos/              # Video review sản phẩm, clip quảng bá thể thao
-├── branding/                # Quy chuẩn thương hiệu (Design Tokens)
-│   ├── colors.js            # Bảng màu chủ đạo (đặc trưng của hãng)
-│   └── typography.js        # Định nghĩa font chữ, kích thước
-├── api/                     # Cấu hình kết nối Backend
-│   ├── axiosClient.js       # Cấu hình Axios (Interceptor, Token)
-│   ├── productApi.js        # Gọi API lấy sản phẩm, biến thể
-│   ├── orderApi.js          # Gọi API đặt hàng, thanh toán
-│   └── userApi.js           # API thông tin cá nhân, lịch sử tập luyện
-├── components/              # Các thành phần giao diện tái sử dụng
-│   ├── common/              # Thành phần nguyên tử (Atomic)
-│   │   ├── Button/          # Custom Button (Primary, Secondary, Outline)
-│   │   ├── Input/           # Input field, Checkbox, Radio cho đồ thể thao
-│   │   ├── Modal/           # Cửa sổ thông báo, pop-up chọn size
-│   │   └── Badge/           # Nhãn "Hot Deal", "New", "Out of Stock"
-│   ├── layout/              # Khung giao diện
-│   │   ├── Header/          # Thanh menu điều hướng, Search bar
-│   │   ├── Footer/          # Thông tin liên hệ, chính sách đổi trả
-│   │   └── Sidebar/         # Bộ lọc bên trái (Filter theo môn thể thao)
-│   ├── features/            # Các component phức tạp theo tính năng
-│   │   ├── auth/            # Login, Register, Social Login (Google/FB)
-│   │   ├── cart/            # Drawer giỏ hàng, Mini-cart, tính tổng tiền
-│   │   ├── checkout/        # Stepper thanh toán (Ship -> Pay -> Confirm)
-│   │   ├── product-detail/  # Ảnh 360, Zoom, Review khách hàng, Related products
-│   │   ├── wishlist/        # Danh sách sản phẩm yêu thích
-│   │   └── comparison/      # Bảng so sánh thông số (vd: Giày chạy bộ vs Giày tập gym)
-│   └── feedback/            # Thông báo cho người dùng
-│       ├── Skeleton/        # Hiệu ứng chờ tải trang
-│       └── Toast/           # Thông báo nhanh (Thêm vào giỏ thành công)
-├── constants/               # Các hằng số dùng chung
-│   ├── storageKeys.js       # Tên biến lưu LocalStorage
-│   └── common.js            # Các giá trị cố định (Size giày: 38-44, vv.)
-├── contexts/                # Quản lý trạng thái bằng Context API
-│   ├── AuthContext.jsx      # Quản lý đăng nhập/phân quyền
-│   ├── CartContext.jsx      # Quản lý giỏ hàng toàn trang
-│   └── ThemeContext.jsx     # Chế độ Dark/Light mode
-├── hooks/                   # Các Custom Hooks tự viết
-│   ├── useDebounce.js       # Tối ưu hóa tìm kiếm sản phẩm (Search)
-│   ├── useLocalStorage.js   # Lưu dữ liệu người dùng tự động
-│   └── useProductFilter.js  # Logic lọc sản phẩm phức tạp
-├── i18n/                    # Đa ngôn ngữ (Ví dụ: Tiếng Việt, Tiếng Anh)
-│   ├── vi.json
-│   └── en.json
-├── layouts/                 # Các kiểu bố cục trang khác nhau
-│   ├── MainLayout.jsx       # Layout có Header/Footer
-│   ├── AuthLayout.jsx       # Layout riêng cho trang Đăng nhập
-│   └── AdminLayout.jsx      # Layout cho trang quản trị (Dashboard)
-├── pages/                   # Các màn hình chính (Tương ứng mỗi Route)
-│   ├── Home/                # Trang chủ (Banners, Trending, New Arrivals)
-│   ├── Shop/                # Trang danh sách tất cả sản phẩm
-│   ├── ProductDetail/       # Trang chi tiết một sản phẩm
-│   ├── Cart/                # Trang giỏ hàng chi tiết
-│   ├── Checkout/            # Trang thực hiện thanh toán
-│   ├── Profile/             # Trang cá nhân (Thông tin, Đơn hàng của tôi)
-│   ├── StoreLocator/        # Trang tìm kiếm hệ thống cửa hàng vật lý
-│   └── NotFound/            # Trang lỗi 404
-├── routes/                  # Quản lý định tuyến (Navigation)
-│   ├── AppRoutes.jsx        # File tổng hợp tất cả đường dẫn
-│   ├── PrivateRoute.jsx     # Route bảo vệ (Phải đăng nhập mới xem được)
-│   └── PublicRoute.jsx      # Route công khai
-├── services/                # Logic xử lý nghiệp vụ phức tạp
-│   ├── paymentService.js    # Xử lý Stripe, PayPal, MoMo, VNPay
-│   └── authService.js       # Xử lý Token (Access Token, Refresh Token)
-├── styles/                  # Toàn bộ CSS/SASS/Tailwind
-│   ├── global.css           # Style dùng chung cho toàn bộ web
-│   ├── variables.scss       # Biến màu sắc, khoảng cách
-│   └── mixins.scss          # Các hàm xử lý CSS nhanh
-├── utils/                   # Hàm tiện ích (Helper functions)
-│   ├── formatCurrency.js    # Hàm định dạng tiền (vd: 1.000.000đ)
-│   ├── formatDate.js        # Định dạng ngày mua hàng
-│   └── validation.js        # Kiểm tra dữ liệu Form (Email, Password)
-├── store/                   # (Nếu dùng Redux/Zustand) Quản lý State lớn
-│   ├── slices/              # Chia nhỏ State (userSlice, cartSlice)
-│   └── index.js             # File cấu hình Store trung tâm
-├── .env                     # Lưu biến môi trường (URL Backend, API Key)
-├── main.jsx                 # Điểm khởi đầu của ứng dụng
-└── App.jsx                  # Nơi bọc các Provider và Routes
 
+Web_shop_Sports/
+├── frontend/                # ReactJS + Vite (Giao diện người dùng)
+├── backend/                 # NodeJS + Express (Xử lý logic & API)
+└── database/                # Lưu trữ các file thiết kế DB (.sql, diagram)
+
+frontend/
+├── src/
+│   ├── assets/              # Tài nguyên tĩnh (Images, Icons, Videos)
+│   ├── branding/            # Design Tokens (colors.js, typography.js)
+│   ├── api/                 # Kết nối API (axiosClient, productApi, userApi)
+│   ├── components/          # Components tái sử dụng
+│   │   ├── common/          # Atomic (Button, Input, Modal, Badge)
+│   │   ├── layout/          # Header, Footer, Sidebar
+│   │   ├── features/        # Auth, Cart, Checkout, Product-Detail, Wishlist
+│   │   └── feedback/        # Skeleton, Toast
+│   ├── constants/           # storageKeys.js, common.js
+│   ├── contexts/            # AuthContext, CartContext, ThemeContext
+│   ├── hooks/               # useDebounce, useLocalStorage, useProductFilter
+│   ├── i18n/                # Đa ngôn ngữ (vi.json, en.json)
+│   ├── layouts/             # MainLayout, AuthLayout, AdminLayout
+│   ├── pages/               # Home, Shop, ProductDetail, Cart, Checkout, Profile...
+│   ├── routes/              # AppRoutes, PrivateRoute, PublicRoute
+│   ├── services/            # paymentService, authService
+│   ├── styles/              # global.css, variables.scss
+│   ├── utils/               # formatCurrency, formatDate, validation
+│   ├── store/               # Redux Slices (nếu có)
+│   ├── App.jsx              # App Root
+│   └── main.jsx             # Entry Point
+├── .env                     # Lưu VITE_API_URL=http://localhost:5000/api
+├── tailwind.config.js       # Nếu dùng Tailwind
+└── package.json
+
+backend/
+├── src/
+│   ├── configs/             # Cấu hình DB (MySQL), Cloudinary, Passport
+│   ├── controllers/         # Nhận Request và trả về Response (JSON)
+│   │   ├── authController.js
+│   │   ├── productController.js
+│   │   └── orderController.js
+│   ├── services/            # Logic nghiệp vụ (Tính toán thuế, giảm giá, check kho)
+│   │   ├── productService.js
+│   │   └── paymentService.js
+│   ├── models/              # Truy vấn MySQL (Dùng Sequelize hoặc Query thuần)
+│   │   ├── Product.js
+│   │   ├── User.js
+│   │   └── Order.js
+│   ├── routes/              # Khai báo các đường dẫn API
+│   │   ├── index.js         # Router tổng
+│   │   ├── productRoutes.js
+│   │   └── userRoutes.js
+│   ├── middlewares/         # Kiểm tra quyền (authMiddleware, errorMiddleware)
+│   └── utils/               # jwtHelper.js, sendEmail.js
+├── .env                     # Lưu DB_HOST, DB_USER, JWT_SECRET, PORT
+├── server.js                # Điểm khởi chạy Server (Entry Point)
+└── package.json
+
+database/
+├── migrations/              # Các file tạo bảng (Create tables)
+│   ├── 01_create_users.sql
+│   ├── 02_create_products.sql
+│   ├── 03_create_variants.sql
+│   └── 04_create_orders.sql
+├── seeds/                   # Dữ liệu mẫu ban đầu để test
+│   └── sample_products.sql
+└── erd_diagram.png          # Ảnh sơ đồ quan hệ giữa các bảng
 
 ## Yêu cầu hệ thống
 Trước khi bắt đầu, đảm bảo máy của bạn đã cài đặt:
@@ -110,7 +94,7 @@ Trước khi bắt đầu, đảm bảo máy của bạn đã cài đặt:
 - Di chuyển vào thư mục dự án:  `cd Web_shop_Sports`
 
 2. Cài đặt dependencies (Frontend)
-- Di chuyển vào thư mục frontend:   `cd frontend`
+- Di chuyển vào thư mục frontend/backend:   `cd frontend` `cd backtend`
 - Cài đặt packages với npm:         `npm install`
 - hoặc với yarn:                    `yarn install`
 
