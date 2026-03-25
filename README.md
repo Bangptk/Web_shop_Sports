@@ -98,7 +98,9 @@ Trước khi bắt đầu, đảm bảo máy của bạn đã cài đặt:
 
 ## Kiểm tra phiên bản
 `node --version`    # v18.x.x hoặc cao hơn
+
 `npm --version`     # 9.x.x hoặc cao hơn
+
 `git --version`     # 2.x.x hoặc cao hơn
 
 ## Cài đặt
@@ -139,7 +141,6 @@ Trước khi bắt đầu, đảm bảo máy của bạn đã cài đặt:
 1. Development Mode:
 - Từ thư mục frontend:  `npm run dev`
                         Server sẽ chạy tại: http://localhost:5173/
-                        Vite HMR (Hot Module Replacement) enabled
 2. Production Build:
 - Build cho production:         `npm run build`
 - Preview production build:     `npm run preview`
@@ -163,9 +164,9 @@ Trước khi bắt đầu, đảm bảo máy của bạn đã cài đặt:
 
 ## Workflow phát triển (Git Branching Strategy)
 main          (production-ready code)
-  ↑
+  <--
 develop       (integration branch)
-  ↑
+  <--
 feature/*     (feature branches)
 
 ## Quy trình làm việc
@@ -177,8 +178,8 @@ feature/*     (feature branches)
 2. Development:
 - Code your feature...
 - Commit thường xuyên với message rõ ràng:
-            `git add .`
-            `git commit -m "feat: implement product gallery component"`
+    `git add .`
+    `git commit -m "feat: implement product gallery component"`
 
 3. Push lên remote:
             `git push -u origin feature/ten-tinh-nang`
@@ -202,10 +203,14 @@ feature/*     (feature branches)
 ## Team (5 thành viên)
 Phan Thị Khánh Băng -- Team Leader, Frontend Developer, Project structure
                     -- @Bangptk
+
 Dương Thanh Phong   -- Frontend Developer, Backend Developer
                     -- @ThanhPhong2401
+
 Vũ Đức Huân         -- Frontend Developer, Backend Developer
+
 Phạm Huỳnh Tài      -- Documentation
+
 Hồ Thái Phong       -- Documentation
 
-## Thank to read me!
+## Thank you for read me!
