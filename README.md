@@ -184,17 +184,8 @@ feature/*     (feature branches)
 - Sau khi được Approve → Thực hiện Merge pull request vào develop.
 - Delete branch: Xóa branch feature sau khi đã merge thành công.
 
-## Team (5 thành viên)
-Phan Thị Khánh Băng -- Team Leader, Frontend Developer, Project structure
+## Team (1 thành viên)
+Phan Thị Khánh Băng -- Frontend Developer, Backend Developer, Project structure, Documentation
                     -- @Bangptk
-
-Dương Thanh Phong   -- Frontend Developer, Backend Developer
-                    -- @ThanhPhong2401
-
-Vũ Đức Huân         -- Frontend Developer, Backend Developer
-
-Phạm Huỳnh Tài      -- Documentation
-
-Hồ Thái Phong       -- Documentation
 
 ## Thank you for read me!
