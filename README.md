@@ -185,7 +185,7 @@ feature/*     (feature branches)
 - Delete branch: Xóa branch feature sau khi đã merge thành công.
 
 ## Team (1 thành viên)
-Phan Thị Khánh Băng -- Frontend Developer, Backend Developer, Project structure, Documentation
-                    -- @Bangptk
+Phan Thị Khánh Băng -- Fullstack Developer, Project structure, Documentation
+                    -- @KhanhBang2610
 
 ## Thank you for read me!
